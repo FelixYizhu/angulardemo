@@ -42,3 +42,55 @@ in html file:
         {{item}}
     </li>
 </ul>
+
+
+
+// complex array list
+ public cars: any[] = [
+    {
+      cate: 'BMW',
+      list: [
+        {
+          title: 'x1',
+          price: '300m'
+        },
+        {
+          title: 'x2',
+          price: '400m'
+        },
+        {
+          title: 'x3',
+          price: '500m'
+        }
+      ]
+    },
+    {
+      cate: 'Audi',
+      list: [
+        {
+          title: 'q1',
+          price: '250m'
+        },
+        {
+          title: 'q2',
+          price: '350m'
+        },
+        {
+          title: 'q3',
+          price: '450m'
+        }
+      ]
+    }
+  ];
+
+    <ul>
+        <!--iterate the array list-->
+        <li *ngFor="let item3 of cars">
+            <h2>{{item3.cate}}</h2>
+            <ol>
+                <li *ngFor="let car of item3.list">
+                    {{car.title}}--{{car.price}}
+                </li>
+            </ol>
+        </li>
+    </ul>
