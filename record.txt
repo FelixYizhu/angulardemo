@@ -1,1 +1,28 @@
 e2e:  endpoint to endpoint
+
+
+src-assets: static resources files
+
+add a new component steps:
+
+1.ng g component components/news      // create components
+
+2. in the app.module.ts file, it occurs the following declaration
+import { HomeComponent } from './components/home/home.component';
+
+ng serve --open    // run the program
+
+in the news component folder:
+1. in .ts file, define a variable title as below:
+export class NewsComponent implements OnInit {
+  title = 'I am a news component title';
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}
+2. then, in the html file, can use this variable, use{{}}
+<p>I am a news component</p>
+{{title}}
