@@ -144,4 +144,32 @@ in html file:
 <h2>Pipe</h2>
 {{today | date:'yyyy-MM-dd HH:mm ss'}}
 ---------------
+<h2>event</h2>
+<button (click)="run()">execute event</button>
+<br><br>
+<button (click)="getData()">execute event to get data of title</button>
+<br><br>
+<button (click)="updateData()">execute event to update data of title</button>
+<h2>table form event</h2>
+<input type="text" (keydown)="keyDown($event)" />
+-------------------------------------
+
+<h1>Two way Data binding  -MVVM</h1>
+MVVM- Model changing affect View, View changing affect Model
+
+firstly, we need to import FormsModule in the app.module.ts file
+
+import { FormsModule} from '@angular/forms';
+
+ imports: [
+    BrowserModule,
+    FormsModule
+  ],
+
+  in html PAGE:
+
+<h1>Two way Data binding  -MVVM</h1>
+
+<input type="text" [(ngModel)] = 'keywords' />
+{{keywords}}
 
