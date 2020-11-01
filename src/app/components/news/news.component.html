@@ -1,1 +1,31 @@
+<p>I am a news component</p>
+<h1>{{username}}</h1>
+<h2>{{title}}</h2>
+<h3>{{userInfo.age+ ','+userInfo.username}}</h3>
 
+<div title={{title}}>
+    <!--bind property-->
+    {{message}}
+</div>
+ <!--display html by using .innerHtml-->
+<div class="red">
+    <span innerHtml="{{content}}"></span>
+</div>
+
+
+<div>
+    <ul>
+         <!--iterate the array list-->
+        <li *ngFor="let item of list">
+            {{item}}
+        </li>
+    </ul>
+    <br>
+    <br>
+    <ul>
+        <!--iterate the array list-->
+        <li *ngFor="let item2 of userList">
+            {{item2.userName}}---{{item2.age}}
+        </li>
+    </ul>
+</div>
