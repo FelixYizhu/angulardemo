@@ -337,4 +337,44 @@ sidebar
     var asideDom= document.getElementById('aside') ;
     asideDom.style.transform="translate(100%,0)";
   }
-  ------------------------------------------
+  ---------------------------------------------------------------
+  Parent component pass value to child component
+1. Parent component pass the value while invoking the child component
+<app-header [msg]="msg"></app-header>
+2. in child component, import Input module
+import {Component,OnInit,Input} from '@angular/core';
+3. In child component, @Input receive the data from Parent component
+  @Input() msg:string
+
+pass method to child component:   run()
+1. Parent component pass the value while invoking the child component
+<app-header [run]="run"></app-header>
+2. in child component, import Input module
+import {Component,OnInit,Input} from '@angular/core';
+3. In child component, @Input receive the data from Parent component
+  @Input() run:any;
+
+
+pass the whole parent component to the child component:  home is parent component
+1. Parent component pass the value while invoking the child component
+<app-header [home]='this'></app-header>
+2. in child component, import Input module
+import {Component,OnInit,Input} from '@angular/core';
+3. In child component, @Input receive the data from Parent component
+  @Input() home:any;
+4. using way:
+this.home.property  or this.home.method()
+------------------------
+Parent component use @ViewChild to get the data and methods of child component
+ 1.in parent component, import ViewChild module
+import {Component,OnInit,ViewChild} from '@angular/core';
+2. @ViewChild
+@ViewChild('childComponent') childComponent:any;
+3. get the property and method of child Component:
+this.childComponent.property    this.ChildComponent.method()
+
+
+
+
+
+
