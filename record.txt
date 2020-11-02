@@ -240,3 +240,34 @@ TS:
     ] ,
     remark : ''
   };
+  ------------------------------
+search list  and delete search history from list
+
+html:
+<div class="search">
+    <input type="text" [(ngModel)]="keyword"> &nbsp;<button (click)="doSearch()">search</button>
+<ul>
+    <li *ngFor="let item of historyList; let key=index">
+        {{item}}             -------<button (click)="delete(key)">delete</button>
+    </li>
+</ul>
+</div>
+
+ts:
+public keyword = '';
+  public historyList = [] ;
+  public deleteItem = '' ;
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+    doSearch(){
+      if (this.historyList.indexOf(this.keyword) === -1){
+        this.historyList.push(this.keyword);
+      }
+      console.log(this.keyword);
+  }
+  delete(key){
+    this.historyList.splice(key, 1);   //delete item:  list.splice(index,count)
+  }
+----------------
