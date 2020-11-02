@@ -170,6 +170,73 @@ import { FormsModule} from '@angular/forms';
 
 <h1>Two way Data binding  -MVVM</h1>
 
+
 <input type="text" [(ngModel)] = 'keywords' />
+
 {{keywords}}
 
+<button (click)="updateKeywords()">Change the value of keywords</button>
+in ts:
+ updateKeywords(){
+    this.keywords = 'new vaalue:12345';
+  }
+
+=--------------------------
+form
+<div class="people_list">
+    <ul>
+        <li>name: 
+            <input type="text" id="username" [(ngModel)]="userInfo.username" class="form-input"></li>
+
+        <li>gender: 
+            <input type="radio" value="1" name="gender" id="gender1" [(ngModel)]="userInfo.gender"><label for="gender1">male</label> 
+            <input type="radio" value="2" name="gender" id="gender2" [(ngModel)]="userInfo.gender"><label for="gender2">female</label> 
+        </li>
+        <li>city: 
+            <select id="city" name="city" [(ngModel)]="userInfo.city">
+               <option *ngFor="let item of userInfo.cityList">
+                    {{item}}
+               </option>
+            </select>
+        </li>
+        <li>hobby: 
+            <span *ngFor="let item of userInfo.hobby; let key=index">
+                <input type="checkbox" [id]="'check'+key" [(ngModel)]="item.checked"/><label [for]="'check'+key">{{item.title}}</label>
+            </span>
+        </li>
+        <li>note: 
+            <textarea name="note" id="note" cols="30" rows=10 [(ngModel)]="userInfo.remark"></textarea>
+        </li>
+    </ul>
+
+    <button (click)="doSubmit()" class="submit">Get the content of form</button>
+
+</div>
+
+
+TS:
+ public userInfo = {
+    username: '',
+    gender: '1' ,
+    cityList: [
+      'Beijing',
+      'Melbourne',
+      'NewYork'
+    ] ,
+    city: 'Melbourne' ,
+    hobby: [
+      {
+      title : 'eating',
+      checked : false
+      },
+      {
+        title : 'sleeping',
+        checked : false
+      },
+      {
+        title : 'playing',
+        checked : false
+      }
+    ] ,
+    remark : ''
+  };
