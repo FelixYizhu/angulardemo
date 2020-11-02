@@ -304,10 +304,37 @@ then in the app.module.ts  config
 
   }
 
-  ------------------------
+  ------------------------------------------------
   component cannot use the other components,
   component can use the other services
   service cannot use the other components
   service can use the other services
+-------------------------------------------------
+get DOM nodes
+ngAfterViewInit(){
 
-  
+}
+------------
+sidebar hide and show
+
+<div class="content">
+<button (click)="showAside()">click to show aside</button>
+<button (click)="hideAside()">click to hide aside</button>
+</div>
+<aside id="aside">
+sidebar
+</aside>
+
+ showAside(){
+
+    // get dom node
+    var asideDom= document.getElementById('aside') ;
+    asideDom.style.transform="translate(0,0)";
+  }
+  hideAside(){
+
+    // get dom node
+    var asideDom= document.getElementById('aside') ;
+    asideDom.style.transform="translate(100%,0)";
+  }
+  ------------------------------------------
