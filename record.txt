@@ -271,3 +271,43 @@ public keyword = '';
     this.historyList.splice(key, 1);   //delete item:  list.splice(index,count)
   }
 ----------------
+create service
+ng g service my-new-service
+1. ng g service services/storage
+
+then in the app.module.ts  config
+// import service
+2. import { StorageService} from './services/storage.service';
+
+ providers: [StorageService],
+
+3. in the ts file which need to use this service
+1) import the service
+
+2) initialize in the constructor
+  constructor(public storage: StorageService) {
+    storage.get();
+    console.log(storage.get());
+  }
+
+  -------------------------------
+  page refreshed, trigger the following function
+  ngOnInit(): void {
+    
+  }
+
+   ngOnInit(): void {
+    let searchlist = this.storage.get('searchlist');
+    if (searchlist){
+      this.historyList = searchlist;
+    }
+
+  }
+
+  ------------------------
+  component cannot use the other components,
+  component can use the other services
+  service cannot use the other components
+  service can use the other services
+
+  
