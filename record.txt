@@ -283,7 +283,7 @@ then in the app.module.ts  config
 
 3. in the ts file which need to use this service
 1) import the service
-
+import {StorageService} from '../../services/storage.service' ;
 2) initialize in the constructor
   constructor(public storage: StorageService) {
     storage.get();
@@ -372,6 +372,87 @@ import {Component,OnInit,ViewChild} from '@angular/core';
 @ViewChild('childComponent') childComponent:any;
 3. get the property and method of child Component:
 this.childComponent.property    this.ChildComponent.method()
+
+--------------------------------------------------------------------
+2020.11.3 2.42 am
+Liftcycle functions(hooks)
+1.constructor(){}
+2.ngOnInit()             -----request data put here      only once
+3.ngDoCheck()
+4.ngAfterContentInit()   ---content into component
+4.ngAfterContentChecked()
+5.ngAfterViewInit()        ----after initing the component views
+6.nvAfterViewChecked()
+7.ngOnDestory()
+--------------------------------------------------------
+RxJS: tool for async data programming
+
+common async programming approaches:
+1.callback function
+2.event monitoring
+3.Promise
+4.RxJS
+
+callback example:
+
+in service: 
+ // async
+  getCallBackData(cb){
+
+    setTimeout(() => {
+      let username = 'Felix' ;
+      cb(username);
+    }, 1000);
+  }
+
+  in component.ts: 
+ this.request.getCallBackData((data) => {
+    console.log(data) ;
+    });
+------------
+Promise example:
+in service: 
+  // async   use promise
+  getPromiseData(){
+
+    return new Promise((resolve) => {
+    setTimeout(() => {
+      let username = 'Felix' ;
+      resolve(username);
+    }, 1000);
+    })
+
+  }
+    in component.ts: 
+  // promise get async data
+    let promiseData=this.request.getPromiseData();
+    promiseData.then((promiseData) => {
+    console.log(promiseData);
+    })
+
+--------------------
+RxJS :
+1. import observable in service 
+import {Observable} from 'rxjs' ;
+2. in service:
+  // sync use RxJS
+  getRxJSData(){
+    return new Observable((observe)=>{
+      setTimeout(() => {
+        let username = 'Felix--ovservable' ;
+        observe.next(username);
+      }, 2000);
+    })
+  }
+  3. use in component
+    //RxJS get async data
+    let rxjsData=this.request.getRxJSData();
+    rxjsData.subscribe((data) => {
+      console.log(data);
+    })
+=-------------------------
+
+
 
 
 
