@@ -1,1 +1,13 @@
+<div class="search">
+    <input type="text" [(ngModel)]="keyword"> &nbsp;<button (click)="doSearch()">search</button>
+<ul>
+    <li *ngFor="let item of historyList; let key=index">
+        {{item}}             -------<button (click)="delete(key)">delete</button>
+    </li>
+</ul>
+</div>
+============================================================================
 
+<div #mybox>
+    I am a DOM node
+</div>
