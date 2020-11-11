@@ -1,1 +1,79 @@
+<!-- <h1>import image</h1>
 
+<img src="assets/images/1.jpg" alt="cool">
+
+<h1>iterate and display the list and index</h1>
+<ul>
+    <li *ngFor="let item of list; let key=index">
+     <span *ngIf="key==1" class="red">
+        {{key}}--{{item.title}}
+     </span>  
+     <span *ngIf="key!=1">
+        {{key}}--{{item.title}}
+     </span>  
+    </li>
+</ul>
+
+<h1>if statement  *ngIf </h1>
+<div *ngIf="flag">
+    <img src="assets/images/1.jpg" alt="cool">
+</div>
+<div *ngIf="!flag">
+    <img src="assets/images/2.jpg" alt="cool">
+</div>
+
+<h2>*ngSwitch</h2>
+
+
+<div [ngSwitch]="orderStatus">
+    <div *ngSwitchCase="1">paied</div>
+    <div *ngSwitchCase="2">paied and confirmed order</div>
+    <div *ngSwitchCase="3">sent</div>
+    <div *ngSwitchCase="4">got</div>
+    <div *ngSwitchCase="4">invalid</div>
+    <div *ngSwitchDefault>paied</div>
+</div>
+<h2>*ngClass *ngStyle</h2>
+<div [ngClass]="{'blue':!flag, 'red':flag}">
+    ngClass
+</div>
+
+<strong> loop the list ,let the first one style is blue</strong>
+<ul>
+    <li *ngFor="let item of list; let key= index" [ngClass]="{'red': key==0, 'blue': key==1}">
+        {{key}}--{{item.title}}
+    </li>
+</ul>
+
+<h2>ngStyle</h2>
+<p style="color: red;">I am a p tag</p>
+<p [ngStyle]="{'color':'blue'}">I am a p tag</p>
+
+<h2>Pipe</h2>
+{{today | date:'yyyy-MM-dd HH:mm ss'}}
+
+<h2>event</h2>
+<button (click)="run()">execute event</button>
+<br><br>
+<button (click)="getData()">execute event to get data of title</button>
+<br><br>
+<button (click)="updateData()">execute event to update data of title</button>
+<h2>table form event</h2>
+<input type="text" (keydown)="keyDown($event)" />
+
+
+<h1>Two way Data binding  -MVVM</h1>
+
+<input type="text" [(ngModel)] = 'keywords' />
+
+{{keywords}}
+
+<button (click)="updateKeywords()">Change the value of keywords</button>
+
+<h1>as</h1> -->
+
+<app-header [title]="title"></app-header>
+<br>
+<br>
+<hr>
+<div>I am Home page</div>
